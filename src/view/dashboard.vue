@@ -1,5 +1,17 @@
 <template>
   <div id="dashboard">
+    <div class="wrap">
+      <div class="slide-left">
+        <main-sidebar :menu="mainRoutes"></main-sidebar>
+      </div>
+      <div class="slide-children">
+        <secondary-sidebar :menu="secondaryRoutes"></secondary-sidebar>
+      </div>
+      <div class="slide-main">
+        <router-view></router-view>
+      </div>
+    </div>
+    <!--
     <el-row>
       <el-col :span="3">
         <main-sidebar :menu="mainRoutes"></main-sidebar>
@@ -12,7 +24,8 @@
           <router-view></router-view> 
         </div>
       </el-col>
-    </el-row>   
+    </el-row> 
+    -->  
   </div>
 </template>
 
@@ -84,3 +97,32 @@ export default {
   }   
 };
 </script>
+<style>
+.slide-left {
+    position: fixed;
+    top: 48px;
+    bottom: 0;
+    left: 0;
+    width: 76px;
+    background: #0e8cff;
+    z-index: 11;
+    overflow:hidden;
+    height: 100%;
+}
+.slide-children {
+    position: fixed;
+    top: 48px;
+    bottom: 0;
+    left: 76px;
+    width: 136px;
+    padding: 0 18px;
+    border-right: 1px solid #f0f0f0;
+    background: #fff;
+    z-index: 10;
+}
+.slide-main {
+  margin: 0px 0 0 212px;
+  min-width: 1035px;
+  box-sizing: border-box;
+}
+</style>

@@ -1,5 +1,8 @@
 <template>
   <div id="app" :class="currentPageClass">
+    <div class="header">
+      <div class="logo">客户管理系统</div>
+    </div>
     <router-view v-if="readyRender"></router-view>
   </div>
 </template>
@@ -54,5 +57,23 @@ button {
   color: rgb(72, 106, 98);
   cursor: text;
 }
+
+.header { 
+  width: 100%; 
+  height:48px;
+  background:#2C2C2C;
+
+  .logo {
+    float: left;
+    padding-left: 93px;
+    font-size: 16px;
+    /*background:url('http://ui.wangxiaobao.com/card/img/logo.png') 17px center no-repeat;*/
+    color: #fff;
+    line-height: 48px;
+  }
+}
+
+
+
 @import "assets/less/common";
 </style>

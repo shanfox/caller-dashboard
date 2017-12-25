@@ -1,5 +1,17 @@
 <template>
   <div id="caller_records">
-    这是Caller设置。。。   
+    <div class="main_title">设置</div>      
   </div>
 </template>
+<script>
+export default {
+  props: ['menu'],
+  methods: {
+    goToPage: function(path) {
+      if(path) {
+        this.$router.push(path);
+      }
+    }
+  }
+}
+</script>
