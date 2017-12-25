@@ -34,8 +34,8 @@
                         </div>
                     </el-tab-pane>
                     <el-tab-pane label="标签设置">
-                        <div class="call-set-main-label">
-                            <a href="javascript:;">居住区域<span>X</span></a>
+                        <div class="call-set-main-label" id="tab-label-tit">
+                            <!--<a href="javascript:;">居住区域<span>X</span></a>
                             <a href="javascript:;">工作区域<span>X</span></a>
                             <a href="javascript:;">知晓渠道<span>X</span></a>
                             <a href="javascript:;">居住区域<span>X</span></a>
@@ -47,7 +47,12 @@
                             <a href="javascript:;">居住区域<span>X</span></a>
                             <a href="javascript:;">居住区域<span>X</span></a>
                             <a href="javascript:;">居住区域<span>X</span></a>
+                            <a href="javascript:;">居住区域<span>X</span></a>
+                            <a href="javascript:;">居住区域<span>X</span></a>
+                            <a href="javascript:;">居住区域<span>X</span></a>
+                            <a href="javascript:;">居住区域<span>X</span></a>-->
                             <a href="javascript:;"><i>+</i></a>
+                            <input type="text" id="tab-label-tit-input" />
                         </div>
                         <ul class="call-set-main-label-ul">
                             <li>
@@ -61,7 +66,16 @@
                         </ul>
                     </el-tab-pane>
                     <el-tab-pane label="号码加密">
-                            
+                        <div class="call-set-main">
+                            <el-form>
+                                <h3 class="call-set-main-number-tit">号码加密</h3>
+                                <el-checkbox v-model="encryption">是否加密call客号码</el-checkbox> 
+                                <div class="call-set-main-number-txt">注：加密后call客手机号后四位号码将加密</div>
+                                <div>
+                                    <el-button type="primary">保存</el-button>
+                                </div>
+                            </el-form>
+                        </div>
                     </el-tab-pane>
                 </el-tabs>
             </template>
@@ -80,9 +94,11 @@
 
 
 <script>
+    
   export default {
     data() {
       return {
+          encryption: false,
           tableData: [
             {
             setsLevel: 'A',
@@ -205,6 +221,14 @@
     font-size: 24px;
 }
 
+.call-set-main-label input {
+    width: 120px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    color: #3F3F3F;
+}
+
 .call-set-main-label-ul li {
     width: 128px;
     height: 40px;
@@ -242,5 +266,14 @@
     display: block;
     color: #999999;
 }
-
+.call-set-main-number-tit {
+    padding: 40px 0;
+}
+.call-set-main-number-txt {
+    padding: 10px 0 100px 25px;
+    font-weight: 400;
+}
+#tab-label-tit-input {
+    display: none;
+}
 </style>
