@@ -67,7 +67,7 @@ button {
     float: left;
     padding-left: 93px;
     font-size: 16px;
-    /*background:url('http://ui.wangxiaobao.com/card/img/logo.png') 17px center no-repeat;*/
+    background:url('http://ui.wangxiaobao.com/card/img/logo.png') 17px center no-repeat;
     color: #fff;
     line-height: 48px;
   }

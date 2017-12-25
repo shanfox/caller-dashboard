@@ -72,7 +72,7 @@
                                             <div>
                                                 <el-button size="small">删除</el-button>
                                                 <el-button size="small">分配任务</el-button>
-                                                <el-button size="small">导入线索</el-button>
+                                                <el-button size="small" @click="dialogVisible = true">导入线索</el-button>
                                                 <el-button size="small">导入详情</el-button>
                                             </div>
                                         </template>
@@ -153,7 +153,7 @@
                                             <div>
                                                 <el-button size="small">删除</el-button>
                                                 <el-button size="small">再分配</el-button>
-                                                <el-button size="small">导入详情</el-button>
+                                                <el-button size="small" @click="dialogVisible = true">导入详情</el-button>
                                             </div>
                                         </template>
                                     </el-table-column>
@@ -181,11 +181,25 @@
         </div>
 
         
+        <el-dialog
+        title="新增线索"
+        :visible.sync="dialogVisible"
+        width="30%"
+        :before-close="handleClose">
+        <el-form :model="form" :rules="rules" ref="ruleForm">
+            <el-form-item label="活动名称" :label-width="formLabelWidth">
+                <el-input v-model="form.name"></el-input>
+            </el-form-item>
+        </el-form>
+        <span slot="footer" class="dialog-footer">
+            <el-button type="primary" @click="dialogVisible = false">导入线索</el-button>
+        </span>
+        </el-dialog> 
             
     </div>    
   </div>
 
-
+   
     
 
 </template>
@@ -196,7 +210,12 @@
   export default {
     data() {
       return {
+        formLabelWidth: '80px',
+        dialogVisible: false,
         tabPosition: 'top',
+        form: {
+          name: '',
+        },
         ruleForm: {
           name: '',
         },
@@ -267,6 +286,13 @@
           }
         });
       },
+      handleClose(done) {
+        this.$confirm('确认关闭？')
+          .then(_ => {
+            done();
+          })
+          .catch(_ => {});
+      }
     },
   };
 </script>
@@ -324,5 +350,10 @@
     text-align: right;
     padding: 15px 50px;
 }
-
+.el-dialog__footer { text-align: center; margin: 0 auto;}
+.el-dialog__header { background: #0E8CFF;}
+.el-dialog__title { color:#fff;}
+.el-dialog__headerbtn .el-dialog__close {
+    color: #fff;
+}
 </style>
